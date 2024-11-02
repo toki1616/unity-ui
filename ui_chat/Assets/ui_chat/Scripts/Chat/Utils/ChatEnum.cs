@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChatEnum
+namespace MyEnum
 {
-    public enum MessageSendUser
+    public class ChatEnum
     {
-        self,
-        Other
+        public enum MessageSendUser
+        {
+            self,
+            Other
+        }
+
+        public enum Reaction
+        {
+            Good,
+        }
     }
 
-    public enum Reaction
-    {
-        Good,
-    }
 }

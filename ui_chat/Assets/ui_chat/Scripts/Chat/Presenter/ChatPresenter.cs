@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
+using MyEnum;
+
 public class ChatPresenter
 {
     private readonly ChatModel _chatModel;

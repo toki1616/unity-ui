@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using Zenject;
 using UniRx;
 
+using MyEnum;
+
 public class ChatReceivedView : MonoBehaviour
 {
     [SerializeField]
