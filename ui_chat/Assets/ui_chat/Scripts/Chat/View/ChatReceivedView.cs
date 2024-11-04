@@ -47,17 +47,17 @@ public class ChatReceivedView : MonoBehaviour
         _scrollRectTransform.offsetMin = offsetMin;
     }
 
-    private void ReceivedMesssage(string message)
+    private void ReceivedMesssage(ChatMessage chatMessage)
     {
-        Debug.Log($"test : ChatReceivedView : ReceivedMesssage : {message}");
+        Debug.Log($"test : ChatReceivedView : ReceivedMesssage : {chatMessage}");
 
-        CreateMessagePanel(message, ChatEnum.MessageSendUser.Other);
+        CreateMessagePanel(chatMessage);
     }
 
-    private void CreateMessagePanel(string message, ChatEnum.MessageSendUser user)
+    private void CreateMessagePanel(ChatMessage chatMessage)
     {
         GameObject spawnObject;
-        if (user == ChatEnum.MessageSendUser.self)
+        if (chatMessage.MessageSendUser == ChatEnum.MessageSendUser.self)
         {
             spawnObject = Instantiate(_chatMessageRightIconPanel, this.transform);
             //spawnObject.GetComponent<SelectMenuButtonView>().SetMenuEnum(menuValue);
@@ -67,7 +67,7 @@ public class ChatReceivedView : MonoBehaviour
             spawnObject = Instantiate(_chatMessageLeftIconPanel, this.transform);
         }
 
-        spawnObject.GetComponent<ChatView>().changeMessageText(message);
+        spawnObject.GetComponent<ChatView>().changeMessageText(chatMessage.Message);
 
         _layoutGroup.CalculateLayoutInputHorizontal();
         _layoutGroup.CalculateLayoutInputVertical();

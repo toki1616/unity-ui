@@ -25,10 +25,15 @@ public class ChatPresenter
         _chatModel.SendMessageText(message);
     }
 
-    public IObservable<string> sendMessageAsObservable =>
+    public IObservable<ChatMessage> sendMessageAsObservable =>
             _chatModel.SendMessage
             .Skip(1)    //登録時に走らないように
             .Share();
+
+    public void SendMessageSendUser(ChatEnum.MessageSendUser messageSendUser)
+    {
+        _chatModel.SetMessageSendUser(messageSendUser);
+    }
 
     public void SendReaction(ChatEnum.Reaction reaction)
     {
